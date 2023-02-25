@@ -183,7 +183,7 @@ for (const e of data.events) {
             <span class="type-event">${e.category}</span> 
             <div class="info-bottom">
                 <div>$ ${e.price}</div>
-                <a href="#" class="btn btn-primary">Buy now</a>
+                <a href="event.html" class="btn btn-primary">Buy now</a>
             </div>
             <span class="event-date">${e.date}</span>
         </div>

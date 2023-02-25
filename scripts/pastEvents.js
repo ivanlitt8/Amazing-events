@@ -188,10 +188,6 @@ for (const e of data.events) {
                     <h5 class="card-title">${e.name}</h5>
                     <p class="card-text">${e.description}</p>
                     <span class="type-event">${e.category}</span> 
-                    <div class="info-bottom">
-                        <div>$ ${e.price}</div>
-                        <a href="#" class="btn btn-primary">Buy now</a>
-                    </div>
                     <span class="event-date">${e.date}</span>
                 </div>
             </div>

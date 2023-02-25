@@ -220,3 +220,36 @@
   table {
       margin: 30px;
   }
+
+  .eventContainer {
+      display: flex;
+      justify-content: center;
+  }
+
+  div.card.mb-3 {
+      height: 350px;
+      margin-top: 80px;
+      margin-bottom: 60px;
+  }
+
+  .eventContainer {
+      height: 520px;
+  }
+
+
+  tr {
+      border: 1px solid;
+  }
+
+  td {
+      border: 1px solid;
+  }
+
+  tbody tr td {
+      text-align: center;
+  }
+
+  #tittle-table {
+      font-size: 18px;
+      font-weight: 600;
+  }
