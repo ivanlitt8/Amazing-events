@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="style/styles.css">
     <link rel="shortcut icon" href="assets/Icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Hop Hill proximos eventos</title>
+    <title>Amazing Events Upcoming Events</title>
 </head>
 
 <body>
@@ -62,17 +62,17 @@
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                     value="option1">
-                <label class="form-check-label" for="inlineRadio1">Fiestas</label>
+                <label class="form-check-label" for="inlineRadio1">Cinema</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                     value="option2">
-                <label class="form-check-label" for="inlineRadio2">Eventos</label>
+                <label class="form-check-label" for="inlineRadio2">Museum</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
                     value="option3">
-                <label class="form-check-label" for="inlineRadio3">Aniversarios</label>
+                <label class="form-check-label" for="inlineRadio3">Others</label>
             </div>
         </div>
         <div class="search">
@@ -83,48 +83,8 @@
         </div>
     </div>
     <div class="cardsContainer">
-        <div class="card" style="width: 18rem;">
-            <img src="assets/7moEncuentro.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Encuentro Cervecero</h5>
-                <p class="card-text">¡No te pierdas la oportunidad de ser parte del Encuentro Cervecero! Este es un
-                    evento que reúne a personas interesadas en la cerveza y su cultura para probar una gran variedad de
-                    esta deliciosa bebida y aprender sobre su proceso de elaboración.</p>
-                <a href="event.html" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="assets/Festival-de-la-Cerveza.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Festival de la Cerveza</h5>
-                <p class="card-text">Este evento es la oportunidad perfecta para que los amantes de la cerveza se reúnan
-                    y disfruten de una amplia variedad de cervezas artesanales de diferentes partes del
-                    mundo. Podrás probar los distintos sabores que hacen de esta
-                    bebida algo verdaderamente especial.</p>
-                <a href="event.html" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="assets/festivalMex.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Festival Fever</h5>
-                <p class="card-text">¡Bienvenido(a) a la fiesta de la cerveza más emocionante del año, organizada por
-                    Fever!
-                    Estamos emocionados de invitarte a un evento que celebra la cultura cervecera y todas las variedades
-                    que hacen de esta bebida algo especial. ¿Te lo vas a perder?</p>
-                <a href="event.html" class="btn btn-primary">Comprar</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="assets/oktoberfest.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Oktoberfest</h5>
-                <p class="card-text">Este es el festival de cerveza más grande del mundo, que se celebra
-                    anualmente en la ciudad de Múnich, Alemania. Durante dos semanas, millones de
-                    visitantes de todo el mundo se reúnen a disfrutar de amplia variedad de cervezas y
-                    comida típica.</p>
-                <a href="event.html" class="btn btn-primary">Comprar</a>
-            </div>
+        <div id="dinamic-card">
+
         </div>
     </div>
     <footer>
@@ -149,6 +109,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src="scripts/upcomingEvents.js"></script>
 </body>
 
 </html>

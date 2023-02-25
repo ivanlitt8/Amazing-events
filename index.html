@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="style/styles.css">
     <link rel="shortcut icon" href="assets/Icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <title>Hop Hill</title>
+    <title>Amazing Events</title>
 </head>
 
 <body>
@@ -62,17 +62,17 @@
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                     value="option1">
-                <label class="form-check-label" for="inlineRadio1">Rubias</label>
+                <label class="form-check-label" for="inlineRadio1">Cinema</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
                     value="option2">
-                <label class="form-check-label" for="inlineRadio2">Rojas</label>
+                <label class="form-check-label" for="inlineRadio2">Museum</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
                     value="option3">
-                <label class="form-check-label" for="inlineRadio3">Negras</label>
+                <label class="form-check-label" for="inlineRadio3">Others</label>
             </div>
         </div>
         <div class="search">
@@ -83,73 +83,8 @@
         </div>
     </div>
     <div class="cardsContainer">
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="assets/rubia2.png" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Golden Hill</h5>
-                        <p class="card-text">La cerveza Golden es una bebida de estilo belga que se caracteriza por su
-                            tono dorado brillante y su cuerpo ligero. Con un aroma fresco y frutal, esta cerveza
-                            presenta un sabor suave y equilibrado que combina notas dulces y amargas. Su sabor complejo
-                            se debe a una cuidadosa selección de ingredientes</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="assets/rubia.png" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Hop Hill Pilsen</h5>
-                        <p class="card-text">La cerveza Pilsen rubia es una clásica cerveza de estilo checo que se
-                            caracteriza por su color dorado pálido y su sabor refrescante y equilibrado. Con un aroma
-                            suave a lúpulo y malta, esta cerveza presenta un sabor limpio y crujiente que se debe a su
-                            proceso de fermentación a baja temperatura y su uso de ingredientes de alta calidad.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="assets/roja.png" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Scottish-Hop</h5>
-                        <p class="card-text">La cerveza Scottish es un estilo de cerveza originario de Escocia que se
-                            caracteriza por su color ámbar oscuro y su sabor complejo y robusto. Con un aroma a malta
-                            tostada y un toque de caramelo, esta cerveza presenta un sabor equilibrado y profundo que
-                            combina notas dulces y amargas.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="assets/negra.png" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Black Bock</h5>
-                        <p class="card-text">La cerveza Bock es un estilo de cerveza alemán que se caracteriza por su
-                            color oscuro y su sabor intenso y dulce. Con un aroma a malta tostada y un toque de
-                            caramelo, esta cerveza presenta un sabor profundo y complejo que combina notas tostadas y
-                            dulces.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
+        <div id="dinamic-card">
+
         </div>
     </div>
     <footer>
@@ -174,6 +109,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src="scripts/events.js"></script>
 </body>
 
 </html>
