@@ -1,4 +1,5 @@
-let data = {
+
+const data = {
     "currentDate": "2022-01-01",
     "events": [
         {
@@ -171,22 +172,5 @@ let data = {
         }
     ]
 };
-let card = document.getElementById("dinamic-card");
 
-for (const e of data.events) {
-    card.innerHTML += `
-    <div class="card" style="width: 18rem;">
-        <img src="${e.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${e.name}</h5>
-            <p class="card-text">${e.description}</p>
-            <span class="type-event">${e.category}</span> 
-            <div class="info-bottom">
-                <div>$ ${e.price}</div>
-                <a href="event.html" class="btn btn-primary">Buy now</a>
-            </div>
-            <span class="event-date">${e.date}</span>
-        </div>
-    </div>
-    `
-}
+export { data };

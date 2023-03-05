@@ -2,26 +2,22 @@ import { data } from './data.js';
 
 let card = document.getElementById("dinamic-card");
 
-let date = data.currentDate;
-const newData = []
-
 for (const e of data.events) {
-    if (e.date < date) {
-        newData.push(e);
-    }
-}
-for (let i = 0; i < newData.length; i++) {
     card.innerHTML += `
-            <div class="card" style="width: 18rem;">
-                <img src="${newData[i].image}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${newData[i].name}</h5>
-                    <p class="card-text">${newData[i].description}</p>
-                    <span class="type-event">${newData[i].category}</span> 
-                    <span class="event-date">${newData[i].date}</span>
-                </div>
+    <div class="card" style="width: 18rem;">
+        <img src="${e.image}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">${e.name}</h5>
+            <p class="card-text">${e.description}</p>
+            <span class="type-event">${e.category}</span> 
+            <div class="info-bottom">
+                <div>$ ${e.price}</div>
+                <a href="eventDetail.html?id=${e._id}" class="btn btn-primary">More info</a>
             </div>
-        `
+            <span class="event-date">${e.date}</span>
+        </div>
+    </div>
+    `
 }
 
 const botonCapturar = document.getElementById("searchButton");
@@ -34,9 +30,9 @@ botonCapturar.addEventListener("click", function (evento) {
 
     nameOrDescription = nameOrDescription.toLowerCase();
 
-    let result = newData.filter(e => e.name.toLowerCase() == nameOrDescription);
+    let result = data.events.filter(e => e.name.toLowerCase() == nameOrDescription);
 
-    result = result.concat(newData.filter(e => e.description.toLowerCase().includes(nameOrDescription) && !result.includes(e)));
+    result = result.concat(data.events.filter(e => e.description.toLowerCase().includes(nameOrDescription) && !result.includes(e)));
 
     if (result.length > 0) {
 
@@ -53,7 +49,7 @@ botonCapturar.addEventListener("click", function (evento) {
                         <span class="type-event">${e.category}</span> 
                         <div class="info-bottom">
                             <div>$ ${e.price}</div>
-                            <a href="event.html" class="btn btn-primary">Buy now</a>
+                            <a id="eventDetail" class="btn btn-primary">More info</a>
                         </div>
                         <span class="event-date">${e.date}</span>
                     </div>
@@ -83,7 +79,7 @@ botonCategoria.addEventListener("click", function (evento) {
     let categoryFilter = []
 
     for (let i = 0; i < values.length; i++) {
-        for (const e of newData) {
+        for (const e of data.events) {
             if (e.category == values[i]) {
                 categoryFilter.push(e)
             }
@@ -105,7 +101,7 @@ botonCategoria.addEventListener("click", function (evento) {
                         <span class="type-event">${e.category}</span> 
                         <div class="info-bottom">
                             <div>$ ${e.price}</div>
-                            <a href="event.html" class="btn btn-primary">Buy now</a>
+                            <a id="eventDetail" class="btn btn-primary">More info</a>
                         </div>
                         <span class="event-date">${e.date}</span>
                     </div>
@@ -116,3 +112,4 @@ botonCategoria.addEventListener("click", function (evento) {
         card.innerHTML = `<h2>No se encontraron resultados</h2>`
     }
 });
+

@@ -60,6 +60,8 @@
 
   .checkboxes {
       display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
   }
 
   .checkAndSearch {
@@ -70,7 +72,8 @@
       padding-right: 30px;
       background-color: #CDDBB6;
       padding-top: 10px;
-      color: #686868
+      color: #686868;
+      height: auto;
   }
 
   .cardsContainer {
@@ -216,6 +219,34 @@
       transition: 0.5s;
       background-color: #aed471;
   }
+
+  .buttonFilter svg {
+      width: 30px;
+      height: 30px;
+  }
+
+  .buttonFilter {
+      border: none;
+      background-color: #CDDBB6;
+  }
+
+  .form-check {
+      margin: 8px;
+  }
+
+  #dinamic-card {
+      min-height: 400px;
+  }
+
+  .eventContainer {
+      background-color: #CDDBB6;
+  }
+
+  #cardDetail {
+      height: 302px;
+      border: solid 1px;
+  }
+
 
   table {
       margin: 30px;

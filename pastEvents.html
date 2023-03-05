@@ -58,27 +58,88 @@
         </a>
     </div>
     <div class="checkAndSearch">
-        <div class="checkboxes">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                    value="option1">
-                <label class="form-check-label" for="inlineRadio1">Cinema</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                    value="option2">
-                <label class="form-check-label" for="inlineRadio2">Museum</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                    value="option3">
-                <label class="form-check-label" for="inlineRadio3">Others</label>
+        <button class="buttonFilter" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel"
+                viewBox="0 0 16 16">
+                <path
+                    d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z" />
+            </svg>
+            Filter by category
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Filter by category</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="checkAndSearch">
+                        <div class="checkboxes">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Food Fair" id="flexCheckDefault1"
+                                    name="category">
+                                <label class="form-check-label" for="flexCheckDefault1">
+                                    Food Fair
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Museum" id="flexCheckDefault2"
+                                    name="category">
+                                <label class="form-check-label" for="flexCheckDefault2">
+                                    Museum
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Costume Party"
+                                    id="flexCheckDefault3" name="category">
+                                <label class="form-check-label" for="flexCheckDefault3">
+                                    Costume Party
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Music Concert"
+                                    id="flexCheckDefault4" name="category">
+                                <label class="form-check-label" for="flexCheckDefault4">
+                                    Music Concert
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Race" id="flexCheckDefault5"
+                                    name="category">
+                                <label class="form-check-label" for="flexCheckDefault5">
+                                    Race
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Book Exchange"
+                                    id="flexCheckDefault6" name="category">
+                                <label class="form-check-label" for="flexCheckDefault6">
+                                    Book Exchange
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Cinema" id="flexCheckDefault7"
+                                    name="category">
+                                <label class="form-check-label" for="flexCheckDefault7">
+                                    Cinema
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="filterButton" type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Filter</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="search">
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Ir</button>
+                <input id="searchEvent" class="form-control me-2" type="search" placeholder="Buscar"
+                    aria-label="Search">
+                <button id="searchButton" class="btn btn-outline-success" type="submit">Ir</button>
             </form>
         </div>
     </div>
@@ -109,7 +170,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <script src="scripts/pastEvents.js"></script>
+    <script src="scripts/pastEvents.js" type="module"></script>
 </body>
 
 </html>
