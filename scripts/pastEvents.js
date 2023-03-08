@@ -3,7 +3,7 @@ import { data } from './data.js';
 let card = document.getElementById("dinamic-card");
 
 let date = data.currentDate;
-const newData = []
+let newData = []
 
 for (const e of data.events) {
     if (e.date < date) {
@@ -89,6 +89,8 @@ botonCategoria.addEventListener("click", function (evento) {
             }
         }
     }
+
+    newData = categoryFilter;
 
     if (categoryFilter.length > 0) {
 

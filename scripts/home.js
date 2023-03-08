@@ -1,6 +1,7 @@
 import { data } from './data.js';
 
 let card = document.getElementById("dinamic-card");
+let newData = data.events;
 
 for (const e of data.events) {
     card.innerHTML += `
@@ -30,9 +31,9 @@ botonCapturar.addEventListener("click", function (evento) {
 
     nameOrDescription = nameOrDescription.toLowerCase();
 
-    let result = data.events.filter(e => e.name.toLowerCase() == nameOrDescription);
+    let result = newData.filter(e => e.name.toLowerCase() == nameOrDescription);
 
-    result = result.concat(data.events.filter(e => e.description.toLowerCase().includes(nameOrDescription) && !result.includes(e)));
+    result = result.concat(newData.filter(e => e.description.toLowerCase().includes(nameOrDescription) && !result.includes(e)));
 
     if (result.length > 0) {
 
@@ -62,10 +63,10 @@ botonCapturar.addEventListener("click", function (evento) {
 
 });
 
-
 const botonCategoria = document.getElementById("filterButton");
 
 botonCategoria.addEventListener("click", function (evento) {
+
     evento.preventDefault();
 
     let checkboxes = document.querySelectorAll('input[name="category"]:checked')
@@ -85,6 +86,8 @@ botonCategoria.addEventListener("click", function (evento) {
             }
         }
     }
+
+    newData = categoryFilter;
 
     if (categoryFilter.length > 0) {
 

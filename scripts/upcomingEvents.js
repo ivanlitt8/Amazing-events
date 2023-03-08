@@ -3,7 +3,7 @@ import { data } from './data.js';
 let card = document.getElementById("dinamic-card");
 
 let date = data.currentDate;
-const newData = []
+let newData = []
 
 for (const e of data.events) {
     if (e.date > date) {
@@ -28,54 +28,6 @@ for (let i = 0; i < newData.length; i++) {
             </div>
         `
 }
-
-// const botonCapturar = document.getElementById("searchButton");
-
-// botonCapturar.addEventListener("click", function (evento) {
-
-//     evento.preventDefault();
-
-//     let nameOrDescription = document.getElementById("searchEvent").value;
-
-//     nameOrDescription = nameOrDescription.toLowerCase();
-
-//     let result = [];
-
-//     let addedEventIds = new Set();
-
-//     for (let event of newData) {
-//         if ((event.name.toLowerCase().includes(nameOrDescription) || event.description.toLowerCase().includes(nameOrDescription)) && !addedEventIds.has(event.id)) {
-//             result.push(event);
-//             addedEventIds.add(event.id);
-//         }
-//     }
-
-//     if (result.length > 0) {
-//         card.innerHTML = ''
-
-//         for (const e of result) {
-
-//             card.innerHTML += `
-//                 <div class="card" style="width: 18rem;">
-//                     <img src="${e.image}" class="card-img-top" alt="...">
-//                     <div class="card-body">
-//                         <h5 class="card-title">${e.name}</h5>
-//                         <p class="card-text">${e.description}</p>
-//                         <span class="type-event">${e.category}</span> 
-//                         <div class="info-bottom">
-//                             <div>$ ${e.price}</div>
-//                             <a href="event.html" class="btn btn-primary">Buy now</a>
-//                         </div>
-//                         <span class="event-date">${e.date}</span>
-//                     </div>
-//                 </div>
-//             ` ;
-//         }
-//     } else {
-//         card.innerHTML = `<h2>No se encontraron resultados para ${nameOrDescription} </h2>`
-//     }
-
-// });
 
 const botonCapturar = document.getElementById("searchButton");
 
@@ -141,6 +93,8 @@ botonCategoria.addEventListener("click", function (evento) {
             }
         }
     }
+
+    newData = categoryFilter;
 
     if (categoryFilter.length > 0) {
 
