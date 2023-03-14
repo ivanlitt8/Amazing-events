@@ -1,25 +1,41 @@
-import { data } from './data.js';
+import { fetchPosts } from './apiFetch.js';
 
+let postsData;
+let newData
 let card = document.getElementById("dinamic-card");
-let newData = data.events;
 
-for (const e of data.events) {
-    card.innerHTML += `
-    <div class="card" style="width: 18rem;">
-        <img src="${e.image}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${e.name}</h5>
-            <p class="card-text">${e.description}</p>
-            <span class="type-event">${e.category}</span> 
-            <div class="info-bottom">
-                <div>$ ${e.price}</div>
-                <a href="eventDetail.html?id=${e._id}" class="btn btn-primary">More info</a>
+async function getData() {
+    try {
+        postsData = await fetchPosts();
+        newData = postsData.events;
+
+        for (const e of postsData.events) {
+            card.innerHTML += `
+            <div class="card" style="width: 18rem;">
+                <img src="${e.image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-tittle">${e.name}</h5>
+                    <div class="card-data">
+                        <p class="price">$${e.price}</p>
+                        <p class="card-date"><small>${e.date}<small></p>
+                        <p><small>${e.category}</small></p> 
+                     </div>
+                    <hr>
+                    <p class="card-description">${e.description}</p>
+                    <div class="info-bottom">
+                        <a href="eventDetail.html?id=${e._id}" class="btn btn-primary">MORE INFO <i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
             </div>
-            <span class="event-date">${e.date}</span>
-        </div>
-    </div>
-    `
+        `
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
+
+getData();
+
 
 const botonCapturar = document.getElementById("searchButton");
 
@@ -35,6 +51,8 @@ botonCapturar.addEventListener("click", function (evento) {
 
     result = result.concat(newData.filter(e => e.description.toLowerCase().includes(nameOrDescription) && !result.includes(e)));
 
+    newData = result;
+
     if (result.length > 0) {
 
         card.innerHTML = '';
@@ -42,19 +60,22 @@ botonCapturar.addEventListener("click", function (evento) {
         for (const e of result) {
 
             card.innerHTML += `
-                <div class="card" style="width: 18rem;">
-                    <img src="${e.image}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${e.name}</h5>
-                        <p class="card-text">${e.description}</p>
-                        <span class="type-event">${e.category}</span> 
-                        <div class="info-bottom">
-                            <div>$ ${e.price}</div>
-                            <a id="eventDetail" class="btn btn-primary">More info</a>
-                        </div>
-                        <span class="event-date">${e.date}</span>
-                    </div>
+            <div class="card" style="width: 18rem;">
+            <img src="${e.image}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-tittle">${e.name}</h5>
+                <div class="card-data">
+                    <p class="price">$${e.price}</p>
+                    <p class="card-date"><small>${e.date}<small></p>
+                    <p><small>${e.category}</small></p> 
+                 </div>
+                <hr>
+                <p class="card-description">${e.description}</p>
+                <div class="info-bottom">
+                    <a href="eventDetail.html?id=${e._id}" class="btn btn-primary">MORE INFO <i class="fa-solid fa-angle-right"></i></a>
                 </div>
+            </div>
+        </div>
             ` ;
         }
     } else {
@@ -80,14 +101,17 @@ botonCategoria.addEventListener("click", function (evento) {
     let categoryFilter = []
 
     for (let i = 0; i < values.length; i++) {
-        for (const e of data.events) {
+        for (const e of newData) {
             if (e.category == values[i]) {
                 categoryFilter.push(e)
             }
         }
     }
 
+
     newData = categoryFilter;
+
+    console.log(newData)
 
     if (categoryFilter.length > 0) {
 
@@ -96,23 +120,25 @@ botonCategoria.addEventListener("click", function (evento) {
         for (const e of categoryFilter) {
 
             card.innerHTML += `
-                <div class="card" style="width: 18rem;">
-                    <img src="${e.image}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${e.name}</h5>
-                        <p class="card-text">${e.description}</p>
-                        <span class="type-event">${e.category}</span> 
-                        <div class="info-bottom">
-                            <div>$ ${e.price}</div>
-                            <a id="eventDetail" class="btn btn-primary">More info</a>
-                        </div>
-                        <span class="event-date">${e.date}</span>
-                    </div>
+            <div class="card" style="width: 18rem;">
+            <img src="${e.image}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-tittle">${e.name}</h5>
+                <div class="card-data">
+                    <p class="price">$${e.price}</p>
+                    <p class="card-date"><small>${e.date}<small></p>
+                    <p><small>${e.category}</small></p> 
+                 </div>
+                <hr>
+                <p class="card-description">${e.description}</p>
+                <div class="info-bottom">
+                    <a href="eventDetail.html?id=${e._id}" class="btn btn-primary">MORE INFO <i class="fa-solid fa-angle-right"></i></a>
                 </div>
+            </div>
+        </div>
             ` ;
         }
     } else {
         card.innerHTML = `<h2>No se encontraron resultados</h2>`
     }
 });
-

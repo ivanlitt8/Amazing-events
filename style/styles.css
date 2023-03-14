@@ -160,7 +160,16 @@
   }
 
   button.btn.btn-outline-success:hover {
-      background-color: #2FFA3D;
+      background-color: #707070;
+  }
+
+  .btn-container button {
+      margin-left: 10px;
+  }
+
+  button a {
+      color: black;
+      text-decoration: none;
   }
 
   a svg path {
@@ -169,7 +178,7 @@
   }
 
   div.card.mb-3 {
-      background-color: #4F5446;
+      background-color: #f5f4f5;
       margin: 30px;
       color: #C5C5C5;
   }
@@ -283,4 +292,153 @@
   .tittle-table {
       font-size: 18px;
       font-weight: 600;
+  }
+
+  p.card-description {
+      position: relative;
+      font-size: 14px;
+      bottom: 25px;
+  }
+
+  a.btn.btn-primary:hover {
+      background-color: #707070;
+      transition: 0.75s;
+  }
+
+  a.btn.btn-primary {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      background-color: #f5f4f5;
+      border-radius: 0;
+      border: #707070 1px solid;
+      color: black;
+  }
+
+  .card {
+      border: solid 1px #707070;
+      background-color: #f5f4f5;
+  }
+
+  /* Card Detail */
+
+  .card.mb-3 {
+      max-height: 302px;
+  }
+
+  .card-date {
+      left: 0px;
+  }
+
+  .card-info {
+      display: flex;
+      justify-content: space-between;
+      color: black;
+  }
+
+  button.btn.btn-primary {
+      float: right;
+      position: relative;
+      bottom: 10px;
+      background-color: #f5f4f5;
+      border-radius: 0;
+      border: #707070 1px solid;
+      color: black;
+  }
+
+  .info-bottom div {
+      font-size: 30px;
+  }
+
+  .card-data {
+      display: flex;
+      width: 100%;
+      height: 20px;
+      justify-content: space-between;
+      color: black;
+  }
+
+  .price {
+      font-size: 22px;
+      margin-left: 10px;
+      color: #0c0c0c;
+  }
+
+  .card-text {
+      color: #707070;
+      font-size: 18px;
+  }
+
+  .card-body h5 {
+      color: #0c0c0c;
+  }
+
+  button.btn.btn-primary:hover {
+      background-color: #707070;
+      transition: 0.75s;
+  }
+
+  .eventContainer {
+      background-color: #b3a897;
+  }
+
+  .card.mb-3 {
+      border: 1px solid #707070;
+      box-shadow: 40px 40px grey;
+  }
+
+  .card-text {
+      position: relative;
+      bottom: 20px;
+  }
+
+  .card-data {
+      color: #707070;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+  }
+
+  small small hr {
+      position: relative;
+      bottom: 15px;
+  }
+
+  .card-info {
+      position: relative;
+      bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+      .card-body {
+          background-color: #f5f4f5;
+          height: 300px;
+      }
+
+      .row.g-0 {
+          max-width: 450px;
+      }
+
+      .col-md-6 {
+          height: 300px;
+      }
+
+      .eventContainer {
+          height: 700px;
+      }
+
+      .card.mb-3 {
+          box-shadow: none;
+      }
+
+      button.btn.btn-primary {
+          float: none;
+      }
+
+      .btn-container {
+          display: flex;
+          justify-content: center;
+      }
+
   }
