@@ -7,6 +7,9 @@ let date;
 let pastEvents = [];
 let upcomingEvents = [];
 
+const tableBody1 = document.getElementById("table-body1");
+const tableBody2 = document.getElementById("table-body2");
+
 async function getData() {
     try {
         postsData = JSON.parse(localStorage.getItem('postsData'));
@@ -34,14 +37,16 @@ async function getData() {
         lowerPercentageAudience();
         greaterCapacity();
 
+        printResult(getFinalStats(getRevenue(upcomingEvents), getAttendance(upcomingEvents)), tableBody1);
+        printResult(getFinalStats(getRevenue(pastEvents), getAttendance(pastEvents)), tableBody2);
+
+
     } catch (error) {
         console.error(error);
     }
 }
 
 getData();
-
-
 
 //Busca el evento con mayor porcentaje de asistencia
 function highestPercentageAudience() {
@@ -148,7 +153,9 @@ function getRevenue(events) {
         }
         return acumulador;
     }, {});
+
     return revenue;
+
 }
 
 // Funcion para obtener el porcentaje por categoria
@@ -163,5 +170,43 @@ function getAttendance(events) {
         acumulador[event.category].percent = ((acumulador[event.category].attendance / acumulador[event.category].capacity) * 100 || 0).toFixed(2);
         return acumulador;
     }, {});
+
     return upcomingEventsAttendance
 }
+
+function getFinalStats(revenue, attendance) {
+    const result = {};
+    for (const category in revenue) {
+        if (attendance.hasOwnProperty(category)) {
+            result[category] = {
+                revenue: revenue[category],
+                percent: attendance[category].percent
+            };
+        }
+    }
+
+    // const tableBody = document.getElementById("table-body");
+
+    // for (const e in result) {
+    //     const porcent = result[e].percent;
+    //     const revenue = result[e].revenue;
+    //     const row = document.createElement("tr");
+    //     row.innerHTML = `<td>${e}</td><td>${revenue}</td><td>${porcent}</td>`;
+    //     tableBody.appendChild(row);
+    // }
+
+    return result;
+}
+
+function printResult(result, tableBody) {
+
+    for (const e in result) {
+        const porcent = result[e].percent;
+        const revenue = result[e].revenue;
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${e}</td><td>${revenue}</td><td>${porcent}</td>`;
+        tableBody.appendChild(row);
+    }
+}
+
+

@@ -202,6 +202,7 @@
   .contactForm {
       width: 100%;
       display: flex;
+      min-height: 460px;
       justify-content: center;
   }
 
@@ -210,6 +211,17 @@
       margin-bottom: 30px;
       padding: 10px;
       width: 30%;
+  }
+
+  .contactForm form {
+      border: 1px solid #707070;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: #f5f4f5
+  }
+
+  .formContainer {
+      background-color: #CDDBB6;
   }
 
   .buttonSpace {
@@ -259,6 +271,10 @@
 
   table {
       margin: 30px;
+  }
+
+  .tableContainer {
+      background-color: #CDDBB6;
   }
 
   .eventContainer {
@@ -378,10 +394,6 @@
       transition: 0.75s;
   }
 
-  .eventContainer {
-      background-color: #b3a897;
-  }
-
   .card.mb-3 {
       border: 1px solid #707070;
       box-shadow: 40px 40px grey;
@@ -439,6 +451,37 @@
       .btn-container {
           display: flex;
           justify-content: center;
+      }
+
+  }
+
+  #myTable th {
+      padding: 0px 15px 0px 15px;
+  }
+
+  .stats {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+  }
+
+  .statsTable tr th {
+      padding: 0px 30px 5px 30px;
+  }
+
+  .tableContainer {
+      padding: 20px 10px 20px 10px;
+      text-align: center;
+  }
+
+  .statsTable {
+      margin: 5px;
+  }
+
+  @media (max-width: 380px) {
+
+      .stats {
+          font-size: 12px;
       }
 
   }
