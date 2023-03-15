@@ -1,19 +1,24 @@
 import { fetchPosts } from "./apiFetch.js";
 
-let postsData
-let events
-let date
+let postsData;
+let events;
+let date;
 
 let pastEvents = [];
 let upcomingEvents = [];
 
 async function getData() {
     try {
-        postsData = await fetchPosts();
+        postsData = JSON.parse(localStorage.getItem('postsData'));
+
+        if (!postsData) {
+            postsData = await fetchPosts();
+            localStorage.setItem('postsData', JSON.stringify(postsData));
+        }
+
         events = postsData.events;
         date = postsData.currentDate;
 
-        // Separo eventos por pasados o futuros
         events.forEach(e => {
             if (e.date < date) {
                 pastEvents.push(e)
@@ -22,24 +27,20 @@ async function getData() {
             }
         });
 
-        sortEvents(pastEvents)
-        sortEvents(upcomingEvents)
+        sortEvents(pastEvents);
+        sortEvents(upcomingEvents);
 
-        console.log(getRevenue(pastEvents))
-        console.log(getRevenue(upcomingEvents))
+        highestPercentageAudience();
+        lowerPercentageAudience();
+        greaterCapacity();
 
-        console.log(getAttendance(events))
-        console.log(getAttendance(events))
-
-        console.log(highestPercentageAudience());
-        console.log(lowerPercentageAudience());
-        console.log(greaterCapacity());
     } catch (error) {
         console.error(error);
     }
 }
 
-getData()
+getData();
+
 
 
 //Busca el evento con mayor porcentaje de asistencia
@@ -56,6 +57,15 @@ function highestPercentageAudience() {
             }
         }
     }
+
+    // Obtener referencia 
+    const firstTd = document.getElementById("first-td");
+
+    // Ejecutar función para obtener el resultado
+    const resultado = nameMaxAudience;
+
+    // Asignar resultado al td
+    firstTd.textContent = resultado;
 
     return ("El evento " + nameMaxAudience + " es el que tiene el máximo porcentaje de asistencia con: " + maxPercentage + "%")
 }
@@ -75,6 +85,15 @@ function lowerPercentageAudience() {
         }
     }
 
+    // Obtener referencia 
+    const secondTd = document.getElementById("second-td");
+
+    // Ejecutar función para obtener el resultado
+    const resultado = nameMinAudience;
+
+    // Asignar resultado al td
+    secondTd.textContent = resultado;
+
     return ("El evento " + nameMinAudience + " es el que tiene el mínimo porcentaje de asistencia con: " + minPercentage + "%")
 }
 
@@ -90,7 +109,18 @@ function greaterCapacity() {
             }
         }
     }
-    return ("El evento " + nameMaxCap + " es el que tiene maxima capacidad con: " + maxCapacity)
+
+    // Obtener referencia 
+    const thirthTd = document.getElementById("thirth-td");
+
+    // Ejecutar función para obtener el resultado
+    const resultado = nameMaxCap;
+
+    // Asignar resultado al td
+    thirthTd.textContent = resultado;
+
+    return ("El evento " + nameMaxCap + " es el que tiene maxima capacidad con: " + maxCapacity);
+
 }
 
 // Ordeno los eventos por categoria
