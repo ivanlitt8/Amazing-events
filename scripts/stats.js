@@ -1,0 +1,137 @@
+import { fetchPosts } from "./apiFetch.js";
+
+let postsData
+let events
+let date
+
+let pastEvents = [];
+let upcomingEvents = [];
+
+async function getData() {
+    try {
+        postsData = await fetchPosts();
+        events = postsData.events;
+        date = postsData.currentDate;
+
+        // Separo eventos por pasados o futuros
+        events.forEach(e => {
+            if (e.date < date) {
+                pastEvents.push(e)
+            } else {
+                upcomingEvents.push(e)
+            }
+        });
+
+        sortEvents(pastEvents)
+        sortEvents(upcomingEvents)
+
+        console.log(getRevenue(pastEvents))
+        console.log(getRevenue(upcomingEvents))
+
+        console.log(getAttendance(events))
+        console.log(getAttendance(events))
+
+        console.log(highestPercentageAudience());
+        console.log(lowerPercentageAudience());
+        console.log(greaterCapacity());
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getData()
+
+
+//Busca el evento con mayor porcentaje de asistencia
+function highestPercentageAudience() {
+    let maxPercentage = 0;
+    let nameMaxAudience = "";
+    for (const e of events) {
+        if (e.assistance != undefined) {
+            let percentage = (e.assistance / e.capacity) * 100
+
+            if (percentage > maxPercentage) {
+                maxPercentage = percentage
+                nameMaxAudience = e.name
+            }
+        }
+    }
+
+    return ("El evento " + nameMaxAudience + " es el que tiene el máximo porcentaje de asistencia con: " + maxPercentage + "%")
+}
+
+//Busca el evento con menor porcentaje de asistencia
+function lowerPercentageAudience() {
+    let minPercentage = 100;
+    let nameMinAudience = "";
+    for (const e of events) {
+        if (e.assistance != undefined) {
+            let percentage = (e.assistance / e.capacity) * 100
+
+            if (percentage < minPercentage) {
+                minPercentage = percentage
+                nameMinAudience = e.name
+            }
+        }
+    }
+
+    return ("El evento " + nameMinAudience + " es el que tiene el mínimo porcentaje de asistencia con: " + minPercentage + "%")
+}
+
+// Busca el evento con mayor capacidad
+function greaterCapacity() {
+    let maxCapacity = 0;
+    let nameMaxCap = "";
+    for (const e of events) {
+        if (e.capacity != undefined) {
+            if (e.capacity > maxCapacity) {
+                maxCapacity = e.capacity;
+                nameMaxCap = e.name;
+            }
+        }
+    }
+    return ("El evento " + nameMaxCap + " es el que tiene maxima capacidad con: " + maxCapacity)
+}
+
+// Ordeno los eventos por categoria
+function sortEvents(events) {
+    events.sort(function (a, b) {
+        if (a.category < b.category) {
+            return -1;
+        }
+        if (a.category > b.category) {
+            return 1;
+        }
+        return 0;
+    });
+
+    return events
+}
+
+// Funcion para obtener ganancia por categoria
+function getRevenue(events) {
+    const revenue = events.reduce(function (acumulador, event) {
+        if (event.assistance === undefined) {
+            acumulador[event.category] = (acumulador[event.category] || 0) + (event.price * event.estimate);
+        } else {
+            acumulador[event.category] = (acumulador[event.category] || 0) + (event.price * event.assistance);
+        }
+        return acumulador;
+    }, {});
+    return revenue;
+}
+
+// Funcion para obtener el porcentaje por categoria
+function getAttendance(events) {
+    const upcomingEventsAttendance = events.reduce(function (acumulador, event) {
+        const attendance = event.assistance || event.estimate || 0;
+        const capacity = event.capacity || 0;
+        acumulador[event.category] = {
+            attendance: (acumulador[event.category]?.attendance || 0) + attendance,
+            capacity: (acumulador[event.category]?.capacity || 0) + capacity
+        };
+        acumulador[event.category].percent = ((acumulador[event.category].attendance / acumulador[event.category].capacity) * 100 || 0).toFixed(2);
+        return acumulador;
+    }, {});
+    return upcomingEventsAttendance
+}
