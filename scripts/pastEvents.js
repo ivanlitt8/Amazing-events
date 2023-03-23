@@ -26,13 +26,12 @@ async function getData() {
         }
     }
 
-    for (const e of postsData.events) {
+    for (const e of newData) {
         card.innerHTML += generateCardHTML(e);
     }
 }
 
 getData();
-
 
 const botonCapturar = document.getElementById("searchButton");
 
@@ -97,7 +96,6 @@ botonCategoria.addEventListener("click", function (evento) {
         for (const e of postsData.events) {
             card.innerHTML += generateCardHTML(e);
         }
-
     } else {
         card.innerHTML = `<h2>No se encontraron resultados</h2>`
     }
