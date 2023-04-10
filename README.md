@@ -10,6 +10,9 @@ Esta es una aplicación web para buscar y filtrar eventos sociales en base a una
 
 La versión final del proyecto se encuentra en el branch task4 del repositorio.
 
+## Link a la aplicación
+Puede acceder a la aplicación en https://ivan-amazing-event.netlify.app
+
 ## Captura de Pantalla
 
 ![image](https://user-images.githubusercontent.com/70293887/230803388-e2929e1e-bc22-42b3-9933-8eca6571636e.png)
